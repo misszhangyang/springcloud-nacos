@@ -1,0 +1,26 @@
+#服务注册中心端口号
+server:
+  port: 8002
+  #服务注册中心实例的主机名
+
+spring:
+  application:
+    name: quickstart-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 106.13.108.254:8848
+        namespace: 74fea915-1d9d-4f38-8b42-fd645bc6e155
+      config:
+        server-addr: 106.13.108.254:8848
+        file-extension: yaml   #文件类型
+        namespace: 74fea915-1d9d-4f38-8b42-fd645bc6e155        #环境
+        group: DEFAULT_GROUP   #所在组
+        ext-config[0]:
+          data-id: quickstart-common.yaml
+          group: DEFAULT_GROUP
+          refresh: true
+
+
+
+

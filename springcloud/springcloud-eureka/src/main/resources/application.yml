@@ -1,0 +1,28 @@
+#服务注册中心端口号
+server:
+  port: 8761
+  #服务注册中心实例的主机名
+
+spring:
+  application:
+    name: nacos-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false #是否向服务注册中心注册自己
+    fetch-registry: false       #是否检索服务
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server,port}/eureka/    #服务注册中心的配置内容，指定服务注册中心的位置
+
+logging:
+  level:
+    root: info
+    org:
+      springframework: info
+

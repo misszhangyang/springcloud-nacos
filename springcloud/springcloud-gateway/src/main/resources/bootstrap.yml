@@ -1,0 +1,39 @@
+#服务注册中心端口号
+server:
+  port: 8003
+  #服务注册中心实例的主机名
+
+spring:
+  application:
+    name: quickstart-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 106.13.108.254:8848
+        namespace: 74fea915-1d9d-4f38-8b42-fd645bc6e155
+      config:
+        server-addr: 106.13.108.254:8848
+        file-extension: yaml   #文件类型
+        namespace: 74fea915-1d9d-4f38-8b42-fd645bc6e155        #环境
+        group: DEFAULT_GROUP   #所在组
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true    #开启从注册中心动态创建路由的功能，利用微服务名进行路由
+#          lower-case-service-id: true
+#      routes:
+#        # 重点说下 服务匹配
+#        - id: quickstart-consumer # 路由 ID，保持唯一
+#          # lb代表从注册中心获取服务，且已负载均衡方式转发
+#          uri: lb://quickstart-consumer
+#          predicates: # 路由条件，Predicate 接受一个输入参数，返回一个布尔值结果
+#            - Path=/api/consumer
+#          filters:
+#            - StripPrefix=1
+#            # 熔断降级配置
+#            - name: Hystrix   #Hystrix Filter的名称，设置成默认的
+#              args:           #Hystrix的配置参数
+#                name: default #Hystrix的command的名称，与接下来的配置对应
+#                fallbackUri: 'forward:/fallback' # 重定向到失败地址
+
+
